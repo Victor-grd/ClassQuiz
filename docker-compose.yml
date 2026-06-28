@@ -92,7 +92,9 @@ services:
     volumes:
       - data:/var/lib/postgresql/data
   proxy:
-    image: ghcr.io/mawoka-myblock/classquiz-caddy:master
+    build:
+      context: .
+      dockerfile: Dockerfile.caddy
     restart: always
     ports:
       - "8000:8080" # The 8000 can be changed.
